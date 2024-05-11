@@ -1,61 +1,61 @@
-"use client";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+'use client'
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
-import { Assistant } from "@/lib/api/assistants/types";
-import { useAssistants } from "@/lib/api/assistants/useAssistants";
-import PageHeader from "@/lib/components/PageHeader/PageHeader";
-import { BrainCard } from "@/lib/components/ui/BrainCard/BrainCard";
-import { MessageInfoBox } from "@/lib/components/ui/MessageInfoBox/MessageInfoBox";
-import { useSupabase } from "@/lib/context/SupabaseProvider";
-import { redirectToLogin } from "@/lib/router/redirectToLogin";
+import { Assistant } from '@/lib/api/assistants/types'
+import { useAssistants } from '@/lib/api/assistants/useAssistants'
+import PageHeader from '@/lib/components/PageHeader/PageHeader'
+import { BrainCard } from '@/lib/components/ui/BrainCard/BrainCard'
+import { MessageInfoBox } from '@/lib/components/ui/MessageInfoBox/MessageInfoBox'
+import { useSupabase } from '@/lib/context/SupabaseProvider'
+import { redirectToLogin } from '@/lib/router/redirectToLogin'
 
-import { AssistantModal } from "./AssistantModal/AssistantModal";
-import styles from "./page.module.scss";
+import { AssistantModal } from './AssistantModal/AssistantModal'
+import styles from './page.module.scss'
 
 const Search = (): JSX.Element => {
-  const pathname = usePathname();
-  const { session } = useSupabase();
-  const [assistants, setAssistants] = useState<Assistant[]>([]);
+  const pathname = usePathname()
+  const { session } = useSupabase()
+  const [assistants, setAssistants] = useState<Assistant[]>([])
   const [assistantModalOpened, setAssistantModalOpened] =
-    useState<boolean>(false);
+    useState<boolean>(false)
   const [currentAssistant, setCurrentAssistant] = useState<Assistant | null>(
     null
-  );
+  )
 
-  const { getAssistants } = useAssistants();
+  const { getAssistants } = useAssistants()
 
   useEffect(() => {
     if (session === null) {
-      redirectToLogin();
+      redirectToLogin()
     }
 
     void (async () => {
       try {
-        const res = await getAssistants();
+        const res = await getAssistants()
         if (res) {
-          setAssistants(res);
+          setAssistants(res)
         }
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
-    })();
-  }, [pathname, session]);
+    })()
+  }, [pathname, session])
 
   return (
     <>
       <div className={styles.page_header}>
         <PageHeader
-          iconName="assistant"
-          label="Quivr Assistants"
+          iconName='assistant'
+          label='Quivr Assistants'
           buttons={[]}
         />
         <div className={styles.content_wrapper}>
-          <MessageInfoBox type="info">
+          <MessageInfoBox type='info'>
             <div className={styles.message_wrapper}>
               <span>
-                A Quivr Assistant is an AI agent that apply specific processes
-                to an input in order to generate a usable output.
+                A Assistant is an AI agent that apply specific processes to an
+                input in order to generate a usable output.
               </span>
               <span>
                 For now, you can try the summary assistant, that summarizes a
@@ -63,14 +63,6 @@ const Search = (): JSX.Element => {
                 your brains.
               </span>
               <span> But don&apos;t worry! Other assistants are cooking!</span>
-            </div>
-          </MessageInfoBox>
-          <MessageInfoBox type="warning">
-            <div className={styles.message_wrapper}>
-              <span>
-                <strong>Feature still in Beta.</strong> Please provide feedbacks
-                on the chat below!
-              </span>
             </div>
           </MessageInfoBox>
           <div className={styles.assistants_grid}>
@@ -82,13 +74,13 @@ const Search = (): JSX.Element => {
                   tags={assistant.tags}
                   imageUrl={assistant.icon_url}
                   callback={() => {
-                    setAssistantModalOpened(true);
-                    setCurrentAssistant(assistant);
+                    setAssistantModalOpened(true)
+                    setCurrentAssistant(assistant)
                   }}
                   key={assistant.name}
                   cardKey={assistant.name}
                 />
-              );
+              )
             })}
           </div>
         </div>
@@ -101,7 +93,7 @@ const Search = (): JSX.Element => {
         />
       )}
     </>
-  );
-};
+  )
+}
 
-export default Search;
+export default Search

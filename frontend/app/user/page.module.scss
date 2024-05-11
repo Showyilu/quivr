@@ -1,4 +1,4 @@
-@use "@/styles/Spacings.module.scss";
+@use '@/styles/Spacings.module.scss';
 
 .user_page_container {
   padding-inline: Spacings.$spacing09;
@@ -6,4 +6,12 @@
   display: flex;
   flex-direction: column;
   gap: Spacings.$spacing05;
+}
+
+.profile_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

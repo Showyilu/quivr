@@ -3572,6 +3572,11 @@ class-variance-authority@0.7.0:
   dependencies:
     clsx "2.0.0"
 
+classnames@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.5.1.tgz#ba774c614be0f016da105c858e7159eae8e7687b"
+  integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
+
 clean-stack@^2.0.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/clean-stack/-/clean-stack-2.2.0.tgz"
@@ -5230,6 +5235,11 @@ https-proxy-agent@^7.0.1:
   dependencies:
     agent-base "^7.0.2"
     debug "4"
+
+hugeicons-react@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/hugeicons-react/-/hugeicons-react-0.2.0.tgz#a37f9b3238339d12607e214d2e5b00a0e44d9f70"
+  integrity sha512-3eY1sRPQf2wYNygyi7P1TB90sHJLwv79HWLDbcvJhaWDnlC2X0QUUX54/X6NFR5MM6X6Ct/1Xh/0AlLrpnPZqQ==
 
 human-signals@^2.1.0:
   version "2.1.0"

@@ -1,6 +1,6 @@
-@use "@/styles/ScreenSizes.module.scss";
-@use "@/styles/Spacings.module.scss";
-@use "@/styles/Typography.module.scss";
+@use '@/styles/ScreenSizes.module.scss';
+@use '@/styles/Spacings.module.scss';
+@use '@/styles/Typography.module.scss';
 
 .page_header_wrapper {
   display: flex;
@@ -44,4 +44,8 @@
       }
     }
   }
+}
+
+.quivr_text_primary {
+  color: var(--primary-0);
 }
